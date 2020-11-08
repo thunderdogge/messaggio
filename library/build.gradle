@@ -1,0 +1,29 @@
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+apply from: "../ktlint.gradle"
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "0.0.1-SNAPSHOT"
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation rootProject.kotlinRuntime
+
+    implementation rootProject.androidMaterial
+}
