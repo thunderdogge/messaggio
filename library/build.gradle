@@ -9,7 +9,7 @@ android {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
-        versionName "0.0.1-SNAPSHOT"
+        versionName "0.0.1"
     }
 
     kotlinOptions {
@@ -27,3 +27,5 @@ dependencies {
 
     implementation rootProject.androidMaterial
 }
+
+apply from: "publish.gradle"

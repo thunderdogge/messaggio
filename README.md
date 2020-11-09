@@ -1,15 +1,15 @@
 # messaggio :postbox:
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[ ![Download](https://api.bintray.com/packages/thunderdogge/messaggio/com.thunderdogge.messaggio/images/download.svg) ](https://bintray.com/thunderdogge/messaggio/com.thunderdogge.messaggio/_latestVersion)
 
 What? One more Kotlin library? Yes! Messaggio is a simple library that wants to hug you and ease your pain
 associated with how to display toasts, snackbars or any kind of message you want (but you'll have to implement it by yourself, oops) according to MVI/MVP/MVVM paradigm.
 The library is inspired by [Cicerone](https://github.com/terrakok/cicerone), btw.
 
 ## Get started
-Add this stuff to your `build.gradle` file:
+Add this stuff to your `build.gradle` file (check the latest version there :point_up:):
 
 ```gradle
-implementation "com.thunderdogge:messaggio:1.0.0"
+implementation "com.thunderdogge:messaggio:x.x.x"
 ```
 
 Register `Messenger` and `MessageDispatcher` using your favorite DI framework. I prefer [Toothpick](https://github.com/stephanenicolas/toothpick):
