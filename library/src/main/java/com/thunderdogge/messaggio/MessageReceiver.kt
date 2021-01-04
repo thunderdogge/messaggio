@@ -2,6 +2,7 @@ package com.thunderdogge.messaggio
 
 import android.app.Activity
 import android.view.View
+import android.view.Window
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 
@@ -39,7 +40,11 @@ open class MessageReceiver(private val activity: Activity) : IMessageReceiver {
     }
 
     protected open fun showSnackbarMessage(context: Activity, text: String, length: Int) {
-        val view = context.findViewById<View>(android.R.id.content) ?: return
+        val view = getSnackbarContainerView(context) ?: return
         Snackbar.make(view, text, length).show()
+    }
+
+    protected open fun getSnackbarContainerView(context: Activity): View? {
+        return context.findViewById(Window.ID_ANDROID_CONTENT)
     }
 }
