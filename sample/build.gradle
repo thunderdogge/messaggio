@@ -9,25 +9,6 @@ android {
         applicationId "com.thunderdogge.sample"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
-        versionCode 1
-        versionName "1.0.0"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-        }
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
