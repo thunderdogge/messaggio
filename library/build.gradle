@@ -1,30 +1,9 @@
-apply plugin: "com.android.library"
-apply plugin: "kotlin-android"
-apply from: "../ktlint.gradle"
-
-android {
-    compileSdkVersion versions.compileSdk
-
-    defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
-        versionCode 1
-        versionName "0.0.1"
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
-}
+apply plugin: "kotlin"
+apply from: "publish.gradle"
 
 dependencies {
-    implementation libraries.kotlinRuntime
-    implementation libraries.androidMaterial
-}
+    compileOnly project(":android-stub")
+    compileOnly libraries.android
 
-apply from: "publish.gradle"
+    implementation libraries.kotlinRuntime
+}

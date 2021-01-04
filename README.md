@@ -91,7 +91,7 @@ class MyMessageReceiver(private val activity: Activity) : MessageReceiver(activi
 }
 ```
 
-Also it's good idea to add useful extension:
+Also it's good idea to add an useful extension:
 ```
 fun IMessenger.showDialog(title: String, text: String) {
     val message = DialogMessage(title, text)

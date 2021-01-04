@@ -2,11 +2,11 @@ ext {
     versions = [
         minSdk: 15,
         targetSdk: 30,
-        compileSdk: 30,
-        buildTools: "30.0.2"
+        compileSdk: 30
     ]
 
     libraries = [
+        android: "com.google.android:android:4.1.1.4",
         kotlinRuntime: "org.jetbrains.kotlin:kotlin-stdlib:1.4.21",
         androidMaterial: "com.google.android.material:material:1.2.1"
     ]

@@ -2,12 +2,12 @@ apply plugin: "com.github.dcendents.android-maven"
 apply plugin: "com.jfrog.bintray"
 
 group = "com.thunderdogge"
-version = "0.0.1"
+version = "0.1.0"
 
 install {
     repositories.mavenInstaller {
         pom.project {
-            packaging "aar"
+            packaging "jar"
             groupId "com.thunderdogge"
             artifactId "messaggio"
         }
@@ -37,10 +37,7 @@ bintray {
 
 task sourcesJar(type: Jar) {
     archiveClassifier.set("sources")
-    from android.sourceSets.main.java.srcDirs
-}
-
-task javadoc(type: Javadoc) {
+    from sourceSets.main.java.srcDirs
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
