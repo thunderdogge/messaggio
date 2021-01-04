@@ -3,11 +3,11 @@ apply plugin: "kotlin-android"
 apply from: "../ktlint.gradle"
 
 android {
-    compileSdkVersion rootProject.compileSdkVersion
+    compileSdkVersion versions.compileSdk
 
     defaultConfig {
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "0.0.1"
     }
@@ -23,9 +23,8 @@ android {
 }
 
 dependencies {
-    implementation rootProject.kotlinRuntime
-
-    implementation rootProject.androidMaterial
+    implementation libraries.kotlinRuntime
+    implementation libraries.androidMaterial
 }
 
 apply from: "publish.gradle"

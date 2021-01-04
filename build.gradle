@@ -1,28 +1,26 @@
 ext {
-    minSdkVersion = 15
-    targetSdkVersion = 30
-    compileSdkVersion = 30
+    versions = [
+        minSdk: 15,
+        targetSdk: 30,
+        compileSdk: 30,
+        buildTools: "30.0.2"
+    ]
 
-    androidMaterial = "com.google.android.material:material:1.2.1"
-    androidConstraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
-    androidLifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    libraries = [
+        kotlinRuntime: "org.jetbrains.kotlin:kotlin-stdlib:1.4.21",
+        androidMaterial: "com.google.android.material:material:1.2.1"
+    ]
 }
 
 buildscript {
-    ext {
-        kotlinVersion = "1.4.10"
-        kotlinRuntime = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    }
-
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.0"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-
+        classpath "com.android.tools.build:gradle:4.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21"
         classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4"
         classpath "com.github.dcendents:android-maven-gradle-plugin:2.1"
     }
@@ -33,4 +31,8 @@ subprojects {
         google()
         jcenter()
     }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

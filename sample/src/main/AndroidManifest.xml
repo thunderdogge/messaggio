@@ -4,14 +4,14 @@
     package="com.thunderdogge.sample">
 
     <application
-        android:name="com.thunderdogge.sample.App"
+        android:name=".App"
         android:allowBackup="false"
         android:label="Messaggio"
         android:theme="@style/Theme.App"
         tools:ignore="GoogleAppIndexingWarning,MissingApplicationIcon">
 
         <activity
-            android:name="com.thunderdogge.sample.MainActivity"
+            android:name=".MainActivity"
             android:launchMode="singleTop">
 
             <intent-filter>
