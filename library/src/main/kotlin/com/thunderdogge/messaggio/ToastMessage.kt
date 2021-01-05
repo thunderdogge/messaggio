@@ -1,6 +1,6 @@
 package com.thunderdogge.messaggio
 
 class ToastMessage(
-    val resource: MessageResource,
-    val duration: MessageDuration
+    val resource: IMessageResource,
+    val duration: IMessageDuration
 ) : IMessage

@@ -1,8 +1,8 @@
 package com.thunderdogge.sample
 
 import androidx.lifecycle.ViewModel
-import com.thunderdogge.messaggio.IMessage
 import com.thunderdogge.messaggio.Messenger
+import com.thunderdogge.messaggio.SnackbarDuration
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
@@ -13,7 +13,7 @@ class MainViewModel @Inject constructor(
     }
 
     fun showSnackbar() {
-        messenger.showSnackbar("Hello from snackbar!")
+        messenger.showSnackbar("Hello from snackbar!", SnackbarDuration.Short)
     }
 
     fun showCustomMessage() {

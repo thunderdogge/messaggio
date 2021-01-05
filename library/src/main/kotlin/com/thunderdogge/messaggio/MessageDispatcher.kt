@@ -9,7 +9,7 @@ class MessageDispatcher {
         if (receiver == null) {
             messageBuffer.add(message)
         } else {
-            receiver!!.onMessageReceived(message)
+            requireNotNull(receiver).onMessageReceived(message)
         }
     }
 

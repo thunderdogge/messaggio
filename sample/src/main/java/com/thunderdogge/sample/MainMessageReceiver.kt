@@ -31,9 +31,12 @@ class MainMessageReceiver(private val activity: Activity) : MessageReceiver(acti
     }
 }
 
-class DialogMessage(val title: String, val text: String) : IMessage
+class DialogMessage(
+    val title: CharSequence,
+    val text: CharSequence
+) : IMessage
 
-fun IMessenger.showDialog(title: String, text: String) {
+fun IMessenger.showDialog(title: CharSequence, text: CharSequence) {
     val message = DialogMessage(title, text)
     postMessage(message)
 }

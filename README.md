@@ -52,20 +52,24 @@ That's it. You're ready to rock!
 class MyViewModel @Inject constructor(
     private val messenger: Messenger
 ) : ViewModel() {
-    fun onShowMessageClick() {
-        messenger.showToast("Hi there!")
+    fun showToast() {
+        messenger.showToast("Hello from toast!")
+    }
+
+    fun showSnackbar() {
+        messenger.showSnackbar("Hello from snackbar!", SnackbarDuration.Short)
     }
 }
 ```
 
 ## Custom messages
-If you realized that you need more than just toast and snackbar, you could add the support of any kind of custom message.
+If you realized that you need more than just toast and snackbar, you could add the support for any kind of custom message.
 
 Create new class that implements `IMessage`:
 ```
 class DialogMessage(
-    val title: String,
-    val text: String
+    val title: CharSequence,
+    val text: CharSequence
 ) : IMessage
 ```
 
@@ -93,7 +97,7 @@ class MyMessageReceiver(private val activity: Activity) : MessageReceiver(activi
 
 Also it's good idea to add an useful extension:
 ```
-fun IMessenger.showDialog(title: String, text: String) {
+fun IMessenger.showDialog(title: CharSequence, text: CharSequence) {
     val message = DialogMessage(title, text)
     postMessage(message)
 }
