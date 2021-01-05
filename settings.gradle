@@ -1,3 +1,3 @@
-include ':library', ':android-stub', ':sample'
+include ':library', ':android', ':sample'
 
-project(':android-stub').projectDir = new File('library/android-stub')
+project(':android').projectDir = new File('library/android-stub')
