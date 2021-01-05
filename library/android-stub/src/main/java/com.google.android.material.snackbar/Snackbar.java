@@ -4,6 +4,8 @@ import android.view.View;
 
 public class Snackbar {
 
+    public static final int LENGTH_INDEFINITE = -2;
+
     public static final int LENGTH_SHORT = -1;
 
     public static final int LENGTH_LONG = 0;

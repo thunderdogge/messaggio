@@ -1,33 +1,37 @@
 package com.thunderdogge.messaggio
 
 open class Messenger(private val dispatcher: MessageDispatcher) : IMessenger {
-    fun showToast(text: String, duration: MessageDuration = MessageDuration.Long) {
-        val message = ToastMessage(MessageResource.Text(text), duration)
+    fun showToast(text: CharSequence, duration: IMessageDuration = ToastDuration.Long) {
+        showToast(MessageResource.Raw(text), duration)
+    }
+
+    fun showToast(resId: Int, duration: IMessageDuration = ToastDuration.Long) {
+        showToast(MessageResource.Id(resId), duration)
+    }
+
+    fun showToast(resId: Int, vararg values: Any, duration: IMessageDuration = ToastDuration.Long) {
+        showToast(MessageResource.Format(resId, *values), duration)
+    }
+
+    fun showToast(resource: IMessageResource, duration: IMessageDuration = ToastDuration.Long) {
+        val message = ToastMessage(resource, duration)
         postMessage(message)
     }
 
-    fun showToast(textResId: Int, duration: MessageDuration = MessageDuration.Long) {
-        val message = ToastMessage(MessageResource.Id(textResId), duration)
-        postMessage(message)
+    fun showSnackbar(text: CharSequence, duration: IMessageDuration = SnackbarDuration.Long) {
+        showSnackbar(MessageResource.Raw(text), duration)
     }
 
-    fun showToast(textResId: Int, vararg values: Any, duration: MessageDuration = MessageDuration.Long) {
-        val message = ToastMessage(MessageResource.Format(textResId, *values), duration)
-        postMessage(message)
+    fun showSnackbar(resId: Int, duration: IMessageDuration = SnackbarDuration.Long) {
+        showSnackbar(MessageResource.Id(resId), duration)
     }
 
-    fun showSnackbar(text: String, duration: MessageDuration = MessageDuration.Long) {
-        val message = SnackbarMessage(MessageResource.Text(text), duration)
-        postMessage(message)
+    fun showSnackbar(resId: Int, vararg values: Any, duration: IMessageDuration = SnackbarDuration.Long) {
+        showSnackbar(MessageResource.Format(resId, *values), duration)
     }
 
-    fun showSnackbar(textResId: Int, duration: MessageDuration = MessageDuration.Long) {
-        val message = SnackbarMessage(MessageResource.Id(textResId), duration)
-        postMessage(message)
-    }
-
-    fun showSnackbar(textResId: Int, vararg values: Any, duration: MessageDuration = MessageDuration.Long) {
-        val message = SnackbarMessage(MessageResource.Format(textResId, *values), duration)
+    fun showSnackbar(resource: IMessageResource, duration: IMessageDuration = SnackbarDuration.Long) {
+        val message = SnackbarMessage(resource, duration)
         postMessage(message)
     }
 

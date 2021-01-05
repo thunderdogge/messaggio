@@ -9,38 +9,28 @@ import com.google.android.material.snackbar.Snackbar
 open class MessageReceiver(private val activity: Activity) : IMessageReceiver {
     override fun onMessageReceived(message: IMessage) {
         if (message is ToastMessage) {
-            val length = when (message.duration) {
-                MessageDuration.Short -> Toast.LENGTH_SHORT
-                MessageDuration.Long -> Toast.LENGTH_LONG
-            }
-
-            val text = message.resource.format(activity)
-            showToastMessage(activity, text, length)
-
+            showToastMessage(activity, message.resource, message.duration)
             return
         }
 
         if (message is SnackbarMessage) {
-            val length = when (message.duration) {
-                MessageDuration.Short -> Snackbar.LENGTH_SHORT
-                MessageDuration.Long -> Snackbar.LENGTH_LONG
-            }
-
-            val text = message.resource.format(activity)
-            showSnackbarMessage(activity, text, length)
-
+            showSnackbarMessage(activity, message.resource, message.duration)
             return
         }
 
-        error("Unexpected message type: ${message::class.simpleName}")
+        error("Unexpected message type: ${message::class.simpleName}. Did you forget to implement your own MessageReceiver?")
     }
 
-    protected open fun showToastMessage(context: Activity, text: String, length: Int) {
+    protected open fun showToastMessage(context: Activity, resource: IMessageResource, duration: IMessageDuration) {
+        val text = resource.format(activity)
+        val length = duration.get(activity)
         Toast.makeText(context, text, length).show()
     }
 
-    protected open fun showSnackbarMessage(context: Activity, text: String, length: Int) {
-        val view = getSnackbarContainerView(context) ?: return
+    protected open fun showSnackbarMessage(context: Activity, resource: IMessageResource, duration: IMessageDuration) {
+        val view = getSnackbarContainerView(context) ?: error("Snackbar container view is null")
+        val text = resource.format(activity)
+        val length = duration.get(activity)
         Snackbar.make(view, text, length).show()
     }
 
