@@ -13,7 +13,7 @@ implementation "com.thunderdogge:messaggio:x.x.x"
 ```
 
 Register `Messenger` and `MessageDispatcher` using your favorite DI framework. I prefer [Toothpick](https://github.com/stephanenicolas/toothpick):
-```
+```kotlin
 object AppModule : Module() {
     init {
         val messaggio = Messaggio.create()
@@ -24,7 +24,7 @@ object AppModule : Module() {
 ```
 
 Add `MessageReceiver` and `MessageDispatcher` instances to activity:
-```
+```kotlin
 class MyActivity : AppCompatActivity() {
     private val messageReceiver = MainReceiver(this)
 
@@ -33,7 +33,7 @@ class MyActivity : AppCompatActivity() {
 ```
 
 Attach `messageReceiver` to `messageDispatcher` and don't forget to detach receiver to avoid memory leaks:
-```
+```kotlin
 override fun onResumeFragments() {
     super.onResumeFragments()
 
@@ -48,7 +48,7 @@ override fun onPause() {
 ```
 
 That's it. You're ready to rock!
-```
+```kotlin
 class MyViewModel @Inject constructor(
     private val messenger: Messenger
 ) : ViewModel() {
@@ -66,7 +66,7 @@ class MyViewModel @Inject constructor(
 If you realized that you need more than just toast and snackbar, you could add the support for any kind of custom message.
 
 Create new class that implements `IMessage`:
-```
+```kotlin
 class DialogMessage(
     val title: CharSequence,
     val text: CharSequence
@@ -74,7 +74,7 @@ class DialogMessage(
 ```
 
 Create your own `MessageReceiver` and handle new message type there:
-```
+```kotlin
 class MyMessageReceiver(private val activity: Activity) : MessageReceiver(activity) {
     override fun onMessageReceived(message: IMessage) {
         if (message is DialogMessage) {
@@ -95,8 +95,8 @@ class MyMessageReceiver(private val activity: Activity) : MessageReceiver(activi
 }
 ```
 
-Also it's good idea to add an useful extension:
-```
+Also it's good idea to add useful extension:
+```kotlin
 fun IMessenger.showDialog(title: CharSequence, text: CharSequence) {
     val message = DialogMessage(title, text)
     postMessage(message)
