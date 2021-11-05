@@ -3,20 +3,19 @@ apply plugin: "kotlin-android"
 apply plugin: "kotlin-kapt"
 
 android {
-    compileSdkVersion versions.compileSdk
+    compileSdk versions.compileSdk
 
     defaultConfig {
         applicationId "com.thunderdogge.sample"
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
     }
 }
 
 dependencies {
     implementation project(":library")
 
-    implementation libraries.kotlinRuntime
-    implementation libraries.androidMaterial
+    implementation "com.google.android.material:material:1.4.0"
 
     implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:3.1.0"
     kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:3.1.0"

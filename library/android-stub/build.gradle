@@ -1,4 +1,5 @@
-apply plugin: 'java'
+//noinspection JavaPluginLanguageLevel
+apply plugin: "java"
 
 dependencies {
     compileOnly libraries.android

@@ -1,14 +1,24 @@
 # messaggio :postbox:
-[ ![Download](https://api.bintray.com/packages/thunderdogge/messaggio/com.thunderdogge.messaggio/images/download.svg) ](https://bintray.com/thunderdogge/messaggio/com.thunderdogge.messaggio/_latestVersion)
+[![](https://jitpack.io/v/thunderdogge/messaggio.svg)](https://jitpack.io/#thunderdogge/messaggio)
 
-What? One more Kotlin library? Yes! Messaggio is a simple library that wants to hug you and ease your pain
+What? One more Kotlin library? Yes! Messaggio is a simple library that is going to hug you and ease your pain
 associated with how to display toasts, snackbars or any kind of message you want (but you'll have to implement it by yourself, oops) according to MVI/MVP/MVVM paradigm.
 The library is inspired by [Cicerone](https://github.com/terrakok/cicerone), btw.
 
 ## Get started
-Add this stuff to your `build.gradle` file (check the latest version there :point_up:):
+Add it in your root `build.gradle` at the end of repositories:
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+```
 
-```gradle
+Add the dependency in your `build.gradle` file (check the latest version there :point_up:):
+
+```groovy
 implementation "com.thunderdogge:messaggio:x.x.x"
 ```
 

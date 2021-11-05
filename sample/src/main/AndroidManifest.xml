@@ -11,6 +11,7 @@
         tools:ignore="GoogleAppIndexingWarning,MissingApplicationIcon">
 
         <activity
+            android:exported="true"
             android:name=".MainActivity"
             android:launchMode="singleTop">
 

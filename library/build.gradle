@@ -1,9 +1,19 @@
 apply plugin: "kotlin"
-apply from: "publish.gradle"
+apply plugin: "maven-publish"
 
 dependencies {
     compileOnly project(":android")
     compileOnly libraries.android
+}
 
-    implementation libraries.kotlinRuntime
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = "com.thunderdogge"
+            artifactId = "messaggio"
+            version = "1.0.0"
+
+            from components.java
+        }
+    }
 }
