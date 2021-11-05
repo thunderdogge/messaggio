@@ -30,13 +30,3 @@ class MainMessageReceiver(private val activity: Activity) : MessageReceiver(acti
             .show()
     }
 }
-
-class DialogMessage(
-    val title: CharSequence,
-    val text: CharSequence
-) : IMessage
-
-fun IMessenger.showDialog(title: CharSequence, text: CharSequence) {
-    val message = DialogMessage(title, text)
-    postMessage(message)
-}
