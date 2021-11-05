@@ -1,6 +1,19 @@
 apply plugin: "kotlin"
+apply plugin: "maven-publish"
 
 dependencies {
     compileOnly project(":android")
     compileOnly libraries.android
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = "com.thunderdogge"
+                artifactId = "messaggio"
+                version = "1.0.0"
+            }
+        }
+    }
 }
